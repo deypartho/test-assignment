@@ -1,0 +1,54 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-12 header">
+        <input type="text" class="form-control"  name="search" [(ngModel)]="search"  autocomplete="off" placeholder="search by name..." />
+    </div>
+  </div>
+</div>
+<section class="container card-wrap">
+    <div class="row">
+        <div class="col-md-3 col-6 col-lg-3 item" *ngFor="let emp of employees | filter: search">
+            <div class="card">
+                <div class="img-wrap">
+                    <img class="card-img-top" src="{{emp.image}}" alt="Card image cap">
+                    <div class="img-overlay">
+                        <h2>{{emp.name}}</h2>
+                        <p>id: {{emp.id}} - created: {{emp.created}}</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                 <ul>
+                     <li>
+                         <span class="title">
+                            <i class="fas" [ngClass]="{'fa-toggle-on': emp.status == 'Alive', 'fa-toggle-off': emp.status == 'Dead', 'fa-question': emp.status == 'unknown'}"></i>
+                         </span>
+                         <span class="result">{{emp.status}}</span>
+                     </li>
+                     <li>
+                         <span class="title">
+                            <i  [ngClass]="{'fas fa-user-alt': emp.species == 'Human', 'fab fa-reddit-alien': emp.species == 'Alien'}"></i>
+                            
+                         </span>
+                         <span class="result">{{emp.species}}</span>
+                     </li>
+                     <li>
+                         <span class="title"><i class="fas" [ngClass]="{'fa-female': emp.gender == 'Female', 'fa-male' : emp.gender == 'Male'}"></i></span>
+                         <!-- <span class="title"><i [ngClass]="{'fas fa-male' : emp.gender == 'Male'}"></i></span> -->
+                         <span class="result">{{emp.gender}}  </span>
+                     </li>
+                     <li>
+                         <span class="title"><i class="fas fa-globe-africa"></i></span>
+                         <a href="{{emp.origin.url}}" class="result">{{emp.origin.name}}</a>
+                     </li>
+                     <li>
+                         <span class="title"><i class="fas fa-map-marker-alt"></i></span>
+                         <a href="{{emp.location.url}}" class="result">{{emp.location.name}}</a>
+                     </li>
+                 </ul>
+                  
+                </div>
+              </div>
+        </div>
+    </div>
+</section>

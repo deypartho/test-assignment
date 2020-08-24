@@ -1,0 +1,43 @@
+.employee-wrap{
+    background-color: #f2f2f2;
+    padding: 0;
+    .header{
+        min-height: 35px;
+        padding: 10px;
+        background-color: #ccc;
+    }
+    .emp-view{
+        .emp-col{
+            border: 1px solid #888;
+            &:nth-child(odd){
+                background: #b5b5b5;
+                }
+            &:nth-child(even){
+                background: #e0e0e0;
+                }
+            .employee{
+                padding: 5px 10px;
+                h2{
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.modal-body{
+    span{
+        display: block;
+        
+    }
+}
+.grid{
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+@media(max-width:767px){
+    .btn-group, .heading-emp{
+        display: none;
+    }
+}
